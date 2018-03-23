@@ -1,0 +1,57 @@
+import os
+#import a complex math module
+import cmath
+
+def clear_screen():
+  os.system('cls' if os.name == 'int' else 'clear')
+  
+def loopy(items):
+  for item in items:
+    if item == "QUIT":
+      break
+    continue
+def show_help():
+  print("Welcome to the quadratic calculator!Ready to solve those problems?")
+  print("""
+  Press return to start.
+  Enter QUIT to exit.
+  """)
+  
+show_help()
+while True:
+    
+  choice = input("> ")
+  if choice == 'QUIT':
+    break
+  else:
+    #to take the coefficient input from users
+    try:
+      a = int(input("Enter coefficient a: "))
+      b = int(input("Enter coeffient b: "))
+      c = int(input("Enter coefficient c: "))
+    except ValueError:
+      print("{your input} isn't an integer!".format(a, b, c))
+        
+    d = (b**2) - (4*a*c)
+      
+    if d<0:
+        print("This equation has no real solution")
+    if d == 0:
+            x = (-b+ math.sqrt(b**2-4*a*c))/2*a
+            print("This equation has one solution: ", x)
+    if d>0:
+      x1 =(-b + cmath.sqrt(b**2 - 4*a*c))/ (2*a)
+      x2 =(-b - cmath.sqrt(b**2 - 4*a*c))/ (2*a)
+      print("The solutions are {} and {}".format(x1, x2))
+    else:
+        if input("Solve again? [Y/n]").lower() == "n":
+          print("See you next time!")
+          break
+      
+    if input == 'n':
+      print("\n ** See you next time! **\n")
+      break
+    else:
+      continue
+clear_screen()
+
